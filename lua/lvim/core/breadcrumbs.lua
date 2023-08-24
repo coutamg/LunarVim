@@ -20,7 +20,7 @@ M.config = function()
       "alpha",
       "lir",
       "Outline",
-      "spectre_panel",
+      -- "spectre_panel",
       "toggleterm",
       "DressingSelect",
       "Jaq",

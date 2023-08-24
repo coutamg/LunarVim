@@ -28,7 +28,7 @@ M.config = function()
         "Trouble",
         "lir",
         "Outline",
-        "spectre_panel",
+        -- "spectre_panel",
         "toggleterm",
         "DressingSelect",
         "TelescopePrompt",

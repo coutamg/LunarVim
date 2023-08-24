@@ -66,6 +66,12 @@ local defaults = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-q>"] = ":call QuickFixToggle()<CR>",
+
+    ["<C-s>"] = "<cmd>noautocmd w<cr>",
+    ["<Right>"] = ":BufferLineCycleNext<CR>",
+    ["<Left>"] = ":BufferLineCyclePrev<CR>",
+    ["rr"] = ":set mouse=r<cr>",
+    ["aa"] = ":set mouse=a<cr>",
   },
 
   term_mode = {

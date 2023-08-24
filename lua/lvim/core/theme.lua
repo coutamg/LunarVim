@@ -42,7 +42,7 @@ M.config = function()
           "vista_kind",
           "terminal",
           "packer",
-          "spectre_panel",
+          -- "spectre_panel",
           "NeogitStatus",
           "help",
         },

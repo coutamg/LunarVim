@@ -52,6 +52,8 @@ M.load_default_options = function()
     showcmd = false,
     ruler = false,
     laststatus = 3,
+    colorcolumn = "90",
+    relativenumber = true,                  -- set relative numbered lines
   }
 
   ---  SETTINGS  ---
@@ -85,7 +87,7 @@ M.load_default_options = function()
         { name = "DiagnosticSignInfo", text = lvim.icons.diagnostics.Information },
       },
     },
-    virtual_text = true,
+    virtual_text = false,
     update_in_insert = false,
     underline = true,
     severity_sort = true,
