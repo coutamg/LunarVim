@@ -66,6 +66,10 @@ local defaults = {
     ["]q"] = ":cnext<CR>",
     ["[q"] = ":cprev<CR>",
     ["<C-q>"] = ":call QuickFixToggle()<CR>",
+
+    ["<C-s>"] = "<cmd>noautocmd w<cr>",
+    ["mr"] = ":set mouse=r<cr>",
+    ["ma"] = ":set mouse=a<cr>",
   },
 
   term_mode = {

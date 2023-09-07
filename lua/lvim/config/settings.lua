@@ -26,7 +26,7 @@ M.load_default_options = function()
     mouse = "a", -- allow the mouse to be used in neovim
     pumheight = 10, -- pop up menu height
     showmode = false, -- we don't need to see things like -- INSERT -- anymore
-    smartcase = true, -- smart case
+    smartcase = false, -- smart case
     splitbelow = true, -- force all horizontal splits to go below current window
     splitright = true, -- force all vertical splits to go to the right of current window
     swapfile = false, -- creates a swapfile
@@ -38,12 +38,13 @@ M.load_default_options = function()
     undofile = true, -- enable persistent undo
     updatetime = 100, -- faster completion
     writebackup = false, -- if a file is being edited by another program (or was written to file while editing with another program), it is not allowed to be edited
-    expandtab = true, -- convert tabs to spaces
+    expandtab = false, -- convert tabs to spaces
     shiftwidth = 2, -- the number of spaces inserted for each indentation
     tabstop = 2, -- insert 2 spaces for a tab
+    softtabstop = -1,
     cursorline = true, -- highlight the current line
     number = true, -- set numbered lines
-    numberwidth = 4, -- set number column width to 2 {default 4}
+    numberwidth = 2, -- set number column width to 2 {default 4}
     signcolumn = "yes", -- always show the sign column, otherwise it would shift the text each time
     wrap = false, -- display lines as one long line
     shadafile = join_paths(get_cache_dir(), "lvim.shada"),
@@ -52,13 +53,21 @@ M.load_default_options = function()
     showcmd = false,
     ruler = false,
     laststatus = 3,
+    relativenumber = true,
+    colorcolumn = "90",
   }
+
 
   ---  SETTINGS  ---
   vim.opt.spelllang:append "cjk" -- disable spellchecking for asian characters (VIM algorithm does not support it)
   vim.opt.shortmess:append "c" -- don't show redundant messages from ins-completion-menu
   vim.opt.shortmess:append "I" -- don't show the default intro message
   vim.opt.whichwrap:append "<,>,[,],h,l"
+
+  vim.api.nvim_create_autocmd("BufEnter", {
+    pattern = { "*.c,*.cpp,*.h,*.go,*.hpp,*.cc" },
+    command = "setlocal tabstop=2 shiftwidth=2"
+  })
 
   for k, v in pairs(default_options) do
     vim.opt[k] = v
@@ -85,7 +94,7 @@ M.load_default_options = function()
         { name = "DiagnosticSignInfo", text = lvim.icons.diagnostics.Information },
       },
     },
-    virtual_text = true,
+    virtual_text = false,
     update_in_insert = false,
     underline = true,
     severity_sort = true,
@@ -117,5 +126,6 @@ M.load_defaults = function()
   end
   M.load_default_options()
 end
+
 
 return M
